@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Mar Mazuelas">
+    <meta name="description" content="Seleccionar Pais, Provincia y Ciudad">
+    <title>Formulario para seleccionar País, Provincia y Ciudad</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+            <h1>Seleccione País - Provincia - Ciudad</h1>
+        <div class="row">
+            <fieldset>
+                <legend>País - Provincia - Ciudad</legend>
+                <form action="#" method="GET" id="form">
+                    <div class="form-group col-md-6">
+                        <label for="pais">País:
+                            <select name="pais" id="pais">
+                                <option value="">--Seleccione un país--</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="provincia">Provincia:
+                            <select name="provincia" id="provincia">
+                                <option value="">--Seleccione una provincia--</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="ciudad">
+                            <select name="ciudad" id="ciudad">
+                                <option value="">--Seleccione una ciudad--</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="submit" id="enviar">
+                        <i class="fas fa-lock" id="icono">Debe seleccionar todos los campos.</i>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/codigo.js"></script>
+</body>
+
+</html>

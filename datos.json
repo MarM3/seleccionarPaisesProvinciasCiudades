@@ -1,0 +1,25 @@
+{
+	"Paises": ["España","Portugal","Francia"],
+	"Provincias": [
+		["La Rioja", "Álava", "Vizcaya"],
+		["Lisboa", "Oporto", "Setúbal"],
+		["Bretagne", "Borgoña", "Lyon"]
+	],
+	"Ciudades": [
+		[
+			["Logroño", "Haro", "Calahorra"],
+			["Vitoria", "Llodio", "Laguardia"],
+			["Bilbao", "Baracaldo", "Durango"]
+		],
+		[
+			["Lisboa", "Cascais", "Sintra"],
+			["Oporto", "Vila Nova de Gaia", "Paredes"],
+			["Setúbal", "Almada", "Sesimbra"]
+		],
+		[
+			["Rennes", "Brest", "Dinan"],
+			["Dijon", "Cluny", "Chablis"],
+			["Lyon", "Bron", "Mions"]
+		]
+	]
+}
