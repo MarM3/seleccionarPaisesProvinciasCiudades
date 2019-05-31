@@ -2,35 +2,56 @@
 //Fecha: 29/05/2018
 //Descripcion: Seleccionar País, Provincia, Ciudad
 
-//let datos;
-$(document).ready(function(){
-    //datos = result;
-   
-        $("#pais").append("<option value=''>--Seleccione País--</option>")
-        $("#pais").focus(cargarPaises);
-        $("#pais").change(cargarProvincias);
-     $("#enviar").click(function () {
-        if ($("#pais").val() === "" || $("#provincia").val==="" || $("#ciudad").val===""){
-            $("#icono").show().delay(3000).fadeOut();
+let elegido;
+let proElegida;
+$(document).ready(function () {
+    $.getJSON("datos.json", function (resultado) {
+        $("#pais").append("<option value=''>--Seleccione País--</option>");
+        for (let i = 0; i < resultado.Paises.length; i++) {
+            $("#pais").append("<option id='" + resultado.Paises[i] + "' value='" + i +
+                "'>" + resultado.Paises[i] + "</option>");
         }
-/*
-           for(let j=0; j>resultado.provincias.length; j++){
-                $("#provincia").append("<option id='" + resultado.provincia[j] + "' value='" + resultado.provincia[j]
-                + "'>" + resultado.provincia[j] + "</option>");
+        $("#pais").change(function () {
+            $("#provincia").empty();
+            elegido = $("#pais").children("option:selected").val();
+            if (elegido !== "") {
+                $("#provincia").append("<option value=''>--Seleccione una provincia--</option>");
+                for (let j = 0; j < resultado.Provincias.length; j++) {
+                    $("#provincia").append("<option id='" + resultado.Provincias[elegido][j] + "' value='" + j +
+                        "'>" + resultado.Provincias[elegido][j] + "</option>");
+                }
+            } else {
+                $("#icono").show();
+                $("#icono").delay(3000);
+                $("#icono").fadeOut();
+                return false;
             }
-            for(let k=0; k>resultado.ciudades.length; k++){
-                $("#ciudad").append("<option id='" + resultado.ciudad[k] + "' value='" + resultado.ciudad[k]
-                + "'>" + resultado.ciudad[k] + "</option>");
+            $("#provincia").change(function(){
+                $("#ciudad").empty();
+                proElegida = $("#provincia").children("option:selected").val();
+                if (elegido !== "" && proElegida !== ""){
+                    $("#ciudad").append("<option value=''>--Seleccione una ciudad--</option>");
+                    for(let k=0; k<resultado.Ciudades.length; k++){
+                        $("#ciudad").append("<option id='" + resultado.Ciudades[elegido][proElegida][k] + "' value='" + k
+                        + "'>" + resultado.Ciudades[elegido][proElegida][k] + "</option>");
+                    }
+                }else {
+                    $("#icono").show();
+                    $("#icono").delay(3000);
+                    $("#icono").fadeOut();
+                    return false;
+                }
+            });
+        });
+        //$("#pais").change(cargarProvincias);
+        $("#enviar").click(function () {
+            if ($("#pais").val() === "" || $("#provincia").val() === "" || $("#ciudad").val() === "") {
+                $("#icono").show();
+                $("#icono").delay(3000);
+                $("#icono").fadeOut();
+                return false;
             }
-        });*/
-        
+            return true;
+        });
     });
 });
-function cargarPaises(){
-    $.getJSON("datos.json", function (resultado) {
-    for(let i=0; i>resultado.paises.length; i++){
-        $("#pais").append("<option id='" + resultado.paises[i] + "' value='" + resultado.paises[i]
-                        + "'>" + resultado.paises[i] + "</option>");
-    }
-});
-}
